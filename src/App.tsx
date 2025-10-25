@@ -10,7 +10,7 @@ import Profile from "./pages/Profile";
 import Contact from "./pages/Contact";
 import Category from "./pages/Categories";
 import Brand from "./pages/Brand";
-import FAQs from "./pages/FAQs";
+
 
 
 function AppRoutes() {
@@ -71,14 +71,7 @@ function AppRoutes() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/FAQs"
-          element={
-            <ProtectedRoute>
-            <FAQs/>
-            </ProtectedRoute>
-          }
-        />
+      
 
         <Route
           path="/profile"
