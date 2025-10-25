@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useForm } from 'react-hook-form';
 import { Mail, Lock, User, Phone, Calendar, AlertCircle, CheckCircle } from 'lucide-react';
-import Frame from '../../public/Frame 71.png'
+
 interface SignupFormData {
   name: string;
   email: string;

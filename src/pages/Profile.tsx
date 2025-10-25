@@ -76,6 +76,7 @@ export default function Profile() {
               </div>
             </div>
           </div>
+          
 
           <div className="p-8">
             <h2 className="text-xl font-bold text-gray-800 mb-6">Personal Information</h2>

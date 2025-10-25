@@ -1,11 +1,16 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './contexts/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
-import Navbar from './components/Navbar';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Products from './pages/Products';
-import Profile from './pages/Profile';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import { CartProvider } from "./contexts/CartContext";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Navbar from "./components/Navbar";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Products from "./pages/Products";
+import Profile from "./pages/Profile";
+import Contact from "./pages/Contact";
+import Category from "./pages/Categories";
+import Brand from "./pages/Brand";
+import Faqs from "./pages/FAQs";
 
 function AppRoutes() {
   const { user, loading } = useAuth();
@@ -25,8 +30,14 @@ function AppRoutes() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/login" element={user ? <Navigate to="/products" replace /> : <Login />} />
-        <Route path="/signup" element={user ? <Navigate to="/products" replace /> : <Signup />} />
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/products" replace /> : <Login />}
+        />
+        <Route
+          path="/signup"
+          element={user ? <Navigate to="/products" replace /> : <Signup />}
+        />
         <Route
           path="/products"
           element={
@@ -36,6 +47,39 @@ function AppRoutes() {
           }
         />
         <Route
+          path="/category"
+          element={
+            <ProtectedRoute>
+              <Category />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/brand"
+          element={
+            <ProtectedRoute>
+              <Brand />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <ProtectedRoute>
+              <Contact />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/Faqs"
+          element={
+            <ProtectedRoute>
+              <Faqs />
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
           path="/profile"
           element={
             <ProtectedRoute>
@@ -43,8 +87,14 @@ function AppRoutes() {
             </ProtectedRoute>
           }
         />
-        <Route path="/" element={<Navigate to={user ? "/products" : "/login"} replace />} />
-        <Route path="*" element={<Navigate to={user ? "/products" : "/login"} replace />} />
+        <Route
+          path="/"
+          element={<Navigate to={user ? "/products" : "/login"} replace />}
+        />
+        <Route
+          path="*"
+          element={<Navigate to={user ? "/products" : "/login"} replace />}
+        />
       </Routes>
     </>
   );
@@ -54,7 +104,9 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <AppRoutes />
+        <CartProvider>
+          <AppRoutes />
+        </CartProvider>
       </AuthProvider>
     </BrowserRouter>
   );

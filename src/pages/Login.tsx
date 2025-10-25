@@ -3,7 +3,6 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { useForm } from 'react-hook-form';
 import {  Mail, Lock, AlertCircle } from 'lucide-react';
-import Frame68 from '../../public/Frame 68.jpg'
 
 interface LoginFormData {
   email: string;
