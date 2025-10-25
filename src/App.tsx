@@ -12,6 +12,7 @@ import Category from "./pages/Categories";
 import Brand from "./pages/Brand";
 import Faqs from "./pages/FAQs";
 
+
 function AppRoutes() {
   const { user, loading } = useAuth();
 
@@ -74,7 +75,7 @@ function AppRoutes() {
           path="/Faqs"
           element={
             <ProtectedRoute>
-              <Faqs />
+            <Faqs/>
             </ProtectedRoute>
           }
         />
